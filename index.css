@@ -1,0 +1,345 @@
+:root {
+    --background-rgb: 2 6 23;
+    --background-light-rgb: 30 41 59;
+    
+    --border-rgb: 255 255 255;
+    --border: 1px solid rgb(var(--border-rgb) / 20%);
+    
+    --hyperplexed-main-rgb: 41 121 255;
+    --hyperplexed-main-light-rgb: 56 182 255;
+    --hyperplexed-secondary-rgb: 42 252 152;
+      
+    --card-size: 480px;
+    --font-size: 0.8rem;
+    --logo-size: calc(var(--card-size) * 0.3);
+  }
+  
+  body {
+    background: rgb(var(--background-rgb));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card-track {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+    
+  .background {
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    position: relative;
+  }
+  
+  .card-wrapper {
+    width: 100%;
+    position: relative;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+  }
+  
+  .card-image > h1 {
+    color: rgb(34, 40, 66);
+    font-size: 90pt;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .card-gradient {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: radial-gradient(
+      rgb(var(--background-light-rgb)) 400px, 
+      rgb(var(--hyperplexed-main-rgb)) 50%, 
+      rgb(var(--hyperplexed-main-light-rgb)),
+      rgb(var(--hyperplexed-secondary-rgb))
+    );
+    mix-blend-mode: darken; 
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .card-letters {
+    --x: 0px;
+    --y: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: var(--font-size);
+    font-weight: 500;
+    word-wrap: break-word;
+    opacity: 0;
+    transition: opacity 400ms;
+    -webkit-mask-image: radial-gradient(
+      calc(var(--card-size) * 0.8) circle at var(--x) var(--y), 
+      rgb(255 255 255) 20%, 
+      rgb(255 255 255 / 25%), 
+      transparent
+    );
+    scale: 1.03;
+    user-select: none;
+  }
+  
+  .card:hover .card-letters {
+    opacity: 1;
+  }
+  
+  @media(max-width: 600px) {
+    :root {
+      --card-size: 340px;
+    }
+    
+    .card {
+      border-radius: 1rem;
+    }
+  }
+  
+  /* -- Extra Styles -- */
+  
+  .card-track:before,
+  .card-track:after {
+    content: "";
+    height: 100vh;
+    width: 1px;
+    position: absolute;
+    top: 50%;
+    translate: 0% -50%;
+  }
+  
+  .card-track:before {
+    left: -1px;
+    border-left: var(--border);   
+  }
+  
+  .card-track:after {
+    right: -1px;
+    border-right: var(--border);   
+  }
+  
+  .card-wrapper:before,
+  .card-wrapper:after {
+    content: "";
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+  }
+  
+  .card-wrapper:before {
+    top: -1px;
+    border-top: var(--border);   
+  }
+  
+  .card-wrapper:after {
+    bottom: -1px;
+    border-bottom: var(--border);   
+  }
+  
+  .card-corners {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+  .card-corners > .card-corner {
+    display: block;
+    height: 9px;
+    width: 1px;
+    position: absolute;
+    background-color: white;
+  }
+  
+  .card-corners > .card-corner:after {
+    content: "";
+    width: 9px;
+    height: 1px;
+    position: absolute;
+    left: -4px;
+    top: 4px;
+    background-color: white;
+  }
+  
+  .card-corners > .card-corner:nth-child(1) {
+    left: -1px;
+    top: -5px;
+  }
+  
+  .card-corners > .card-corner:nth-child(2) {
+    right: -1px;
+    top: -5px;
+  }
+  
+  .card-corners > .card-corner:nth-child(3) {
+    right: -1px;
+    bottom: -5px;
+  }
+  
+  .card-corners > .card-corner:nth-child(4) {
+    left: -1px;
+    bottom: -5px;
+  }
+
+ .mainy {
+   background: #1f1f1f00;
+   border-radius: 100%;
+   border-width: 2px;
+   border-style: solid;
+   border-color: rgba(50, 239, 66, 1);
+  border-collapse: separate;
+   width: 700px;
+   height: 700px;
+   position: relative;
+ }
+
+ .button {
+   background: #68e573;
+   border-radius: 64px;
+   border: 0;
+   cursor: pointer;
+   width: 300px;
+   height: 65px;
+   position: absolute;
+   left: 209px;
+   top: 492px;
+   box-shadow: 0px 0px 40px 0px rgba(126, 231, 135, 0.4);
+   overflow: hidden;
+ }
+
+ .button:active {
+  background: #4ad155;
+ }
+
+ .kirjuta-kiri {
+   color: #ffffff;
+   text-align: center;
+   font: 700 18px "Montserrat", sans-serif;
+   text-transform: uppercase;
+   position: absolute;
+   left: 20px;
+   top: 18px;
+   width: 260px;
+   height: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .tarkvaraarendaja-pilane-gymbro-disainer {
+   color: #ffffff;
+   text-align: center;
+   font: 300 22px "Montserrat", sans-serif;
+   position: absolute;
+   left: 100px;
+   top: 310px;
+   width: 499px;
+   height: 55px;
+ }
+
+ .kristofer-j-rgenstein {
+   color: #ffffff;
+   text-align: center;
+   font: 400 45px "Montserrat", sans-serif;
+   position: absolute;
+   left: 100px;
+   top: 177px;
+   width: 500px;
+   height: 65px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .kristofer-jyrgensein-tptlive-ee {
+   color: #68e573;
+   text-align: center;
+   font: 500 23px "Montserrat", sans-serif;
+   position: absolute;
+   left: 163px;
+   top: 402px;
+   width: 390px;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .frame-1 {
+   width: 526px;
+   height: 36px;
+   position: absolute;
+   left: 87px;
+   top: 250px;
+   overflow: hidden;
+ }
+
+ .rectangle-1 {
+   background: linear-gradient(180deg,
+       rgba(104, 229, 115, 1) 0%,
+       rgba(50, 239, 66, 1) 100%);
+   border-radius: 82px;
+   width: 4px;
+   height: 220px;
+   position: absolute;
+   left: 306px;
+   top: 20px;
+   transform-origin: 0 0;
+   transform: rotate(-90deg) scale(1, 1);
+ }
+
+ .rectangle-2 {
+   background: linear-gradient(180deg,
+       rgba(182, 228, 186, 1) 0%,
+       rgba(104, 229, 115, 1) 100%);
+   border-radius: 82px;
+   width: 4px;
+   height: 220px;
+   position: absolute;
+   left: 0px;
+   top: 20px;
+   transform-origin: 0 0;
+   transform: rotate(-90deg) scale(1, 1);
+ }
+
+ .xml {
+   position: absolute;
+   left: 245px;
+   top: 0px;
+   overflow: visible;
+ }

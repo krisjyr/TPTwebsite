@@ -1,0 +1,30 @@
+:root {
+    background-color: rgb(17, 17, 22);
+}
+
+.Main {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.Courier {
+    font-family: 'Courier New', Courier, monospace;
+    color: greenyellow;
+    text-decoration: line-through;
+}
+
+.Times {
+font-family: 'Roboto', sans-serif;
+    color: aqua;
+        text-decoration: underline dotted;
+}
+
+.Tahoma {
+font-family: "ff-good-headline-web-pro", sans-serif;
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+a {
+color: rgb(241, 15, 34) !important;
+}
